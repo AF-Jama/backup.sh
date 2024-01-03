@@ -11,7 +11,7 @@ echo "Script is running">>/var/log/backup.log
 
 if ! mount | grep -q $volume; then
     echo $volume not mounted, will attempt to mount now
-    sudo mount -t ntfs-3g $volume $mnt_point && echo $(date '+%Y-%m-%d %H:%M:%S') - Succesfully mounted drive $volume to $mnt_point>>/var/log/backup.log || echo $(date '+%Y-%m-%d %H:%M:%S') - ERROR: Could not mount $volume to $mnt_point,exited>>/var/log/backup.log exit 1;
+    sudo mount -t ntfs-3g $volume $mnt_point && echo $(date '+%Y-%m-%d %H:%M:%S') - Succesfully mounted drive $volume to $mnt_point>>/var/log/backup.log || echo $(date '+%Y-%m-%d %H:%M:%S') - ERROR: Could not mount $volume to $mnt_point,exited>>/var/log/backup.log; exit 1;
 
 fi
 
