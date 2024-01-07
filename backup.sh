@@ -28,7 +28,6 @@ else
 fi
 
 # un mount drive
-sudo umount $mnt_point
-echo $(date '+%Y-%m-%d %H:%M:%S')- volume $volume un mounted>>/var/log/backup.log
+sudo umount $mnt_point && echo $(date '+%Y-%m-%d %H:%M:%S')- volume $volume un mounted>>/var/log/backup.log || echo $(date '+%Y-%m-%d %H:%M:%S') - Unable to un mount drive $volume from $mnt_point>>/var/log/backup.log exit 1;
 
 echo $?
